@@ -1,0 +1,80 @@
+.register-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.register-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.register-container p {
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1e7e34;
+}
+
+.extra-links {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.extra-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式适配 */
+@media (max-width: 500px) {
+    .register-container {
+        padding: 30px 20px;
+        border-radius: 8px;
+    }
+
+    .register-container h2 {
+        font-size: 20px;
+    }
+}

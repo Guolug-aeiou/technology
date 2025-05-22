@@ -1,0 +1,56 @@
+/* 设置整个问题详情容器的基础样式 */
+.issue-detail {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+/* 调整问题标题的样式 */
+.issue-detail h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* 设置问题元数据（如提问者、浏览量等）的样式 */
+.issue-meta {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* 确保问题内容具有良好的可读性 */
+.issue-content {
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: #555;
+}
+
+/* 返回首页链接的样式 */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* 如果需要的话，可以进一步定制标签的样式 */
+#tags-list li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#tags-list a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#tags-list a:hover {
+    text-decoration: underline;
+}

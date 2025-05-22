@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}技术分享社区 - 注册{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="register-container">
+    <h2>开始你的技术之旅</h2>
+    <p>填写以下信息以创建账户</p>
+    <form id="registerForm" action="/register" method="POST">
+        <input type="text" id="username" name="username" placeholder="用户名" required>
+        <input type="email" id="email" name="email" placeholder="邮箱地址" required>
+        <input type="password" id="password" name="password" placeholder="密码" required>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="确认密码" required>
+        <button type="submit">注册</button>
+    </form>
+    <div class="extra-links">
+        <a href="/login">已有账号？登录</a>
+    </div>
+</div>
+
+
+{% endblock %}

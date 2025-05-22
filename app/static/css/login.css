@@ -1,0 +1,91 @@
+/* 登录容器主样式 */
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 标题样式 */
+.login-container h2 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.login-container p {
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 输入框聚焦状态 */
+form input:focus {
+    border-color: var(--primary-color);
+}
+
+/* 提交按钮 */
+form button {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+}
+
+
+form button {
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.extra-links {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.extra-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式适配 */
+@media (max-width: 500px) {
+    .login-container {
+        padding: 30px 20px;
+        border-radius: 8px;
+    }
+
+    .login-container h2 {
+        font-size: 20px;
+    }
+}

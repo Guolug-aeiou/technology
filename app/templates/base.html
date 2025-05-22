@@ -1,0 +1,51 @@
+<!-- 声明 HTML5 文档类型 -->
+<!DOCTYPE html>
+
+<!-- 根标签 <html>，指定语言为简体中文 -->
+<html lang="zh-CN">
+
+<head>
+    <!-- 设置字符编码为 UTF-8 -->
+    <meta charset="UTF-8">
+
+    <!-- 页面标题，默认显示“技术分享社区”，子页面可覆盖 -->
+    <title>{% block title %}技术分享社区{% endblock %}</title>
+
+    <!-- 引入全局公共 CSS 文件 style.css -->
+{#    <link rel="stylesheet" href="../static/css/style.css">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}
+
+    {% endblock %}
+</head>
+
+<body>
+<!-- 页面顶部导航栏 -->
+<header class="header">
+    <div class="container">
+        <!-- 博客名称 -->
+        <h1>技术分享社区</h1>
+
+        <!-- 导航链接：登录、注册等 -->
+        <nav>
+            <a href="/login">登录</a>
+            <span>·</span>
+            <a href="/register">注册</a>
+        </nav>
+    </div>
+</header>
+
+<!-- 页面主要内容区域 -->
+<main class="container">
+    <!-- 子页面填充的内容将插入到这里 -->
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- 页面底部版权信息 -->
+<footer class="footer">
+    <p>&copy; 2025 技术分享社区 | 交流 · 分享 · 成长</p>
+</footer>
+</body>
+
+</html>
