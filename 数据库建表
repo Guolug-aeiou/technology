@@ -25,3 +25,59 @@ CREATE TABLE tags (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) UNIQUE NOT NULL
 );
+
+
+# 测试数据
+-- 插入用户数据 (15条)
+INSERT INTO users (username, email, password_hash, avatar, score) VALUES
+('tech_guru', 'guru@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'guru.jpg', 150),
+('code_master', 'master@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'master.jpg', 200),
+('data_scientist', 'scientist@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'scientist.jpg', 180),
+('web_designer', 'designer@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'designer.jpg', 90),
+('ai_researcher', 'ai@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'ai.jpg', 250),
+('devops_engineer', 'devops@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'devops.jpg', 120),
+('cyber_security', 'security@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'security.jpg', 170),
+('mobile_dev', 'mobile@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'mobile.jpg', 80),
+('cloud_architect', 'cloud@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'cloud.jpg', 210),
+('blockchain_dev', 'blockchain@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'blockchain.jpg', 190),
+('game_developer', 'game@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'game.jpg', 70),
+('python_expert', 'python@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'python.jpg', 220),
+('java_pro', 'java@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'java.jpg', 160),
+('frontend_wizard', 'frontend@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'frontend.jpg', 140),
+('database_admin', 'db@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'db.jpg', 230);
+
+-- 插入标签数据 (10条)
+INSERT INTO tags (name) VALUES
+('Python'),
+('JavaScript'),
+('Java'),
+('Machine Learning'),
+('Web Development'),
+('Cybersecurity'),
+('Cloud Computing'),
+('Mobile Development'),
+('Database'),
+('DevOps');
+
+-- 插入问题数据 (20条)
+INSERT INTO questions (title, content, user_id, views) VALUES
+('如何优化Python代码性能？', '我在处理大数据集时遇到性能问题，有什么优化技巧吗？', 1, 150),
+('React和Vue哪个更适合大型项目？', '我们公司要启动一个新项目，在技术选型上犹豫不决', 2, 200),
+('机器学习模型部署的最佳实践是什么？', '从开发到生产环境部署有哪些注意事项？', 3, 180),
+('如何设计高可用的微服务架构？', '需要设计一个电商平台的微服务架构', 4, 250),
+('Docker容器网络配置问题', '容器间通信遇到困难，如何正确配置网络？', 5, 120),
+('区块链智能合约安全性问题', '如何确保智能合约没有漏洞？', 6, 190),
+('Kubernetes集群自动扩展方案', '如何根据负载自动扩展K8s集群？', 7, 210),
+('前端性能优化技巧', '有哪些实用的前端性能优化方法？', 8, 160),
+('MySQL索引优化策略', '大数据量下如何设计高效索引？', 9, 230),
+('REST API设计规范', '设计REST API时有哪些最佳实践？', 10, 170),
+('Android应用内存泄漏排查', '如何定位和解决Android内存泄漏？', 11, 140),
+('Python异步编程最佳实践', 'asyncio在实际项目中的应用技巧', 12, 180),
+('Java垃圾回收调优', '如何优化JVM垃圾回收性能？', 13, 200),
+('Web安全防护措施', '防范XSS和CSRF攻击的有效方法', 14, 220),
+('AWS架构设计原则', '在AWS上设计高可用架构的要点', 15, 240),
+('Flask和Django如何选择？', '中小型项目应该选择哪个框架？', 1, 130),
+('大数据处理技术选型', 'Hadoop vs Spark vs Flink比较', 2, 190),
+('CI/CD流水线设计', '如何设计高效的持续集成部署流程？', 3, 210),
+('NoSQL数据库适用场景', '什么情况下应该选择NoSQL？', 4, 160),
+('物联网安全防护', 'IoT设备安全防护的最佳实践', 5, 180);

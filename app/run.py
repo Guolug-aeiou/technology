@@ -42,7 +42,7 @@ def login():
         sql = "SELECT * FROM users WHERE username = %s"
         with MysqlUtils() as db:
             users = db.fetch_one(sql, (request.form.get('username'),))
-            if users and users["password_hash"] == password_hash:
+            if users and users["password_hash"] == password_hash and users['username'] == username:
                 # 密码正确
                 flash('密码正确', 'success')
                 # 创建响应对象并设置Cookie
