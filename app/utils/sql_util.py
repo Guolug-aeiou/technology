@@ -1,16 +1,21 @@
 import pymysql
 from typing import Optional, List, Dict, Any
+from dotenv import load_dotenv
+import os
+
+# 加载 .env 文件中的环境变量
+load_dotenv()
 
 
 class MysqlUtils:
     def __init__(
             self,
-            host: str = "localhost",
-            port: int = 3306,
-            user: str = "root",
-            password: str = "",
-            database: str = "",
-            charset: str = "utf8mb4"
+            host: str = os.environ.get("MYSQL_HOST"),
+            port: int = int(os.environ.get("MYSQL_PORT")),
+            user: str = os.environ.get("MYSQL_USER"),
+            password: str = os.environ.get("MYSQL_PASSWORD"),
+            database: str = os.environ.get("MYSQL_DATABASE"),
+            charset: str = os.environ.get("MYSQL_CHARSET"),
     ):
         """
         初始化数据库连接参数
@@ -82,6 +87,7 @@ class MysqlUtils:
 
 
 if __name__ == '__main__':
-    with MysqlUtils(host="localhost",user="root", password="root", database="technology",port=3306,charset="utf8mb4") as db:
+    with MysqlUtils() as db:
         user = db.fetch_one("select * from users where id=%s", (1,))
+        db.insert("INSERT INTO users(`username` ,`email`,`password_hash`) VALUES(%s,%s,%s) ", ("121", "123", "1234",))
         print(user)

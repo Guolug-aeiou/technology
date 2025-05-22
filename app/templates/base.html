@@ -12,7 +12,7 @@
     <title>{% block title %}技术分享社区{% endblock %}</title>
 
     <!-- 引入全局公共 CSS 文件 style.css -->
-{#    <link rel="stylesheet" href="../static/css/style.css">#}
+    {#    <link rel="stylesheet" href="../static/css/style.css">#}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block head %}
 
@@ -28,9 +28,17 @@
 
         <!-- 导航链接：登录、注册等 -->
         <nav>
-            <a href="/login">登录</a>
-            <span>·</span>
-            <a href="/register">注册</a>
+            {% if request.cookies.get('username') %}
+                <!-- 已经登录 -->
+                <a href="/self"><span>欢迎,{{ request.cookies.get('username') }}</span></a>
+                <span>·</span>
+                <a href="/logout" onclick="return confirm('确定要退出登录吗？')">退出</a>
+            {% else %}
+                <!-- 未 - 登录 -->
+                <a href="/login">登录</a>
+                <span>·</span>
+                <a href="/register">注册</a>
+            {% endif %}
         </nav>
     </div>
 </header>
