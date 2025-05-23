@@ -44,7 +44,7 @@ def login():
             users = db.fetch_one(sql, (request.form.get('username'),))
             if users and users["password_hash"] == password_hash and users['username'] == username:
                 # 密码正确
-                flash('密码正确', 'success')
+                # flash('密码正确', 'success')
                 # 创建响应对象并设置Cookie
                 return configure_utils_cookie(response=make_response(redirect(url_for('index'))),
                                               username=users["username"],
@@ -57,6 +57,10 @@ def login():
     return redirect(url_for('login'))
 
 
+@app.route('/self',methods=['GET', 'POST'])
+def self():
+    if request.method == 'GET':
+        return render_template('self.html')
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     if request.method == 'GET':
@@ -92,9 +96,10 @@ def register():
     return redirect(url_for('register'))
 
 
-@app.route('/user/issue/<id>')
-def user_issue(id):
-    print(id)
+@app.route('/user/issue/<int:article_id>')
+def user_issue(article_id):
+    # 在数据库通过id取出issue - questions
+    print(article_id)
     return render_template('issue.html')
 
 

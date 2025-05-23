@@ -25,14 +25,17 @@
     <div class="container">
         <!-- 博客名称 -->
         <h1>技术分享社区</h1>
-
         <!-- 导航链接：登录、注册等 -->
         <nav>
             {% if request.cookies.get('username') %}
                 <!-- 已经登录 -->
-                <a href="/self"><span>欢迎,{{ request.cookies.get('username') }}</span></a>
-                <span>·</span>
-                <a href="/logout" onclick="return confirm('确定要退出登录吗？')">退出</a>
+                <span>欢迎 [ {{ request.cookies.get('username') }} ] </span>
+                <div class="user-avatar">
+                    <a href="/self">
+                        <img src="{{ url_for('static', filename='img/img.png') }}" alt="用户头像" class="avatar-img">
+                    </a>
+                </div>
+                <a href="/logout" onclick="return confirm('确定要退出登录吗？')"> 退出 </a>
             {% else %}
                 <!-- 未 - 登录 -->
                 <a href="/login">登录</a>

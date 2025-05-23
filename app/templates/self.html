@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}我的个人信息{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <!-- 用户信息卡片 -->
+        <div class="user-info-card">
+            {#            <div class="user-avatar">#}
+            {#                <!-- 使用默认头像 -->#}
+            {#                <img src="{{ url_for('static', filename='img/img.png') }}"#}
+            {#                     alt="用户头像"#}
+            {#                     class="avatar-img"#}
+            {#                     style="width: 100px; height: 100px; border-width: 3px;">#}
+            {#            </div>#}
+            <div class="user-details">
+                <h2>tech_guru</h2>  <!-- 模拟用户名 -->
+                <p>邮箱: guru@example.com</p>  <!-- 模拟邮箱 -->
+                <p>注册时间: 2025-01-15</p>  <!-- 模拟注册时间 -->
+                <p>积分: 150</p>  <!-- 模拟积分 -->
+            </div>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="value">5</div>  <!-- 模拟发布问题数 -->
+                    <div class="label">发布问题</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">128</div>  <!-- 模拟关注者数量 -->
+                    <div class="label">关注者</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">78</div>  <!-- 模拟活跃度百分比 -->
+                    <div class="label">活跃度</div>
+                </div>
+                <div class="stat-box" style="padding: 0;margin: 0;border-radius:0;min-width:10px;float:right;">
+                    <a href="/profile/edit" class="btn">编辑资料</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 我的问题列表 -->
+        <div class="questions-section">
+            <h2 class="section-title">我的提问</h2>
+            <ul>
+                <!-- 模拟问题数据（直接复制HTML结构，修改标题和时间） -->
+                <li class="question-item">
+                    <div class="question-title">
+                        <a href="/user/issue/{{ 100 }}">如何优化Python代码性能？</a>
+                    </div>
+                    <div class="question-meta">
+                        <span>发布于 05-20</span>
+                        <span class="tag">Python</span>
+                        <span>浏览量: 150</span>
+                    </div>
+                </li>
+                <li class="question-item">
+                    <div class="question-title">
+                        <a href="/user/issue/{{ 100 }}">机器学习模型部署的最佳实践是什么？</a>
+                    </div>
+                    <div class="question-meta">
+                        <span>发布于 05-15</span>
+                        <span class="tag">机器学习</span>
+                        <span>浏览量: 180</span>
+                    </div>
+                </li>
+                <li class="question-item">
+                    <div class="question-title">
+                        <a href="/user/issue/{{ 100 }}">React和Vue哪个更适合大型项目？</a>
+                    </div>
+                    <div class="question-meta">
+                        <span>发布于 05-10</span>
+                        <span class="tag">Web开发</span>
+                        <span>浏览量: 200</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 感兴趣的标签 -->
+        <div class="tags-section">
+            <h2 class="section-title">关注的技术标签</h2>
+            <ul>
+                <!-- 模拟标签数据（直接列出标签名称） -->
+                <li><a href="#">Python</a></li>
+                <li><a href="#">机器学习</a></li>
+                <li><a href="#">Web开发</a></li>
+                <li><a href="#">云计算</a></li>
+                <li><a href="#">网络安全</a></li>
+            </ul>
+        </div>
+    </main>
+{% endblock %}

@@ -88,6 +88,7 @@ class MysqlUtils:
 
 if __name__ == '__main__':
     with MysqlUtils() as db:
-        user = db.fetch_one("select * from users where id=%s", (1,))
-        db.insert("INSERT INTO users(`username` ,`email`,`password_hash`) VALUES(%s,%s,%s) ", ("121", "123", "1234",))
+        user = db.fetch_one("select * from users")
+        # user = db.fetch_one("select * from users where id=%s", (41,))
+        # db.insert("INSERT INTO users(`username` ,`email`,`password_hash`) VALUES(%s,%s,%s) ", ("12111", "1213", "1234",))
         print(user)

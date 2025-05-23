@@ -21,12 +21,10 @@ body {
     flex-direction: column;
 }
 
-
-
 .header {
     background-color: var(--primary-color);
     color: white;
-    padding: 15px 0;
+    padding: 5px 0;
     width: 100%;
     position: sticky;
     top: 0;
@@ -35,14 +33,40 @@ body {
 
 .footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 5px 0;
     background-color: #343a40;
     color: white;
-    width: 100%;
     margin-top: auto;
+    width: 100%;
 }
 
-/* 保留其他样式... */
+
+.user-avatar {
+    float: right;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.user-avatar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.avatar-img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* 圆形头像 */
+    border: 2px solid white;
+    object-fit: cover; /* 防止图片变形 */
+    margin-right: 8px;
+}
+
+.user-avatar a:hover {
+    opacity: 0.8; /* 鼠标悬停时轻微透明 */
+}
 
 .container {
     width: 90%;
@@ -52,2022 +76,204 @@ body {
     flex: 1;
 }
 
-main.container {
+.main.container {
     flex-grow: 1;
-    padding: 20px 0;
+    padding: 10px 0;
 }
-.header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 15px 0;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+
 .header h1 {
     margin: 0;
     text-align: center;
 }
+
 .header nav {
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     margin-top: -25px;
     margin-right: 20px;
 }
+
 .header a {
     color: white;
     text-decoration: none;
     margin-left: 10px;
     font-weight: bold;
 }
-.footer {
+
+.questions-section, .tags-section, .user-info-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header .container{
+    padding: 5px 0;
+}
+
+.questions-section ul, .tags-section ul, .user-info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.questions-section li, .tags-section li a, .user-info-card li {
+    padding: 10px 0;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.questions-section li {
+    border-bottom: 1px solid #ddd;
+}
+
+.questions-section li:last-child {
+    border-bottom: none;
+}
+
+.tags-section li {
+    display: inline-block;
+    background: #e9ecef;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.questions-section li a, .tags-section li a {
+    color: #505050;
+    text-decoration: none;
+}
+
+.questions-section li a:hover, .tags-section li a:hover {
+    background-color: #d1d1d1;
+    transform: scale(1.00);
+}
+
+.questions-section li a {
+    display: block;
+    padding: 10px;
+}
+
+.tags-section li a {
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+/* 新增个人信息页面样式 */
+.user-info-card {
+    overflow: auto; /* 清除浮动 */
+}
+
+.user-avatar img {
+    width: 60px;
+    height: 60px;
+    border-width: 3px;
+    float: left; /* 头像左浮动 */
+    margin-right: 20px; /* 头像与文字间距 */
+}
+
+.user-details {
+    margin-bottom: 20px;
+}
+
+.user-details h2 {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.user-details p {
+    color: var(--text-light);
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.stats {
+    margin-bottom: 20px;
+    overflow: auto; /* 清除浮动 */
+}
+
+
+.stat-box {
+    display: inline-block;
+    background: #e9ecef;
+    padding: 15px 20px;
+    margin-right: 10px;
+    border-radius: 8px;
     text-align: center;
-    padding: 20px 0;
-    background-color: #343a40;
+    min-width: 120px;
+}
+
+.stat-box .value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.stat-box .label {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-top: 5px;
+    display: block;
+}
+
+.btn {
+    background-color: var(--primary-color);
     color: white;
-    margin-top: auto;
-    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+.btn:hover {
+    background-color: #0069d9;
 }
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
+
+.section-title {
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 5px;
 }
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+
+.question-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
 }
-.questions-section li:last-child {
+
+.question-item:last-child {
     border-bottom: none;
 }
-.tags-section li {
+
+.question-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.question-title a {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.question-title a:hover {
+    color: var(--primary-color);
+}
+
+.question-meta {
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+
+.tag {
     display: inline-block;
     background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.questions-section ul, .tags-section ul {
-    list-style: none;
-    padding: 0;
-}
-.questions-section li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-.questions-section li:last-child {
-    border-bottom: none;
-}
-.tags-section li {
-    display: inline-block;
-    background: #e9ecef;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-}
-/* 问题列表中的 a 标签样式 */
-.questions-section li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.questions-section li a:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
-}
-/* 标签列表中的 a 标签样式 */
-.tags-section li a {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #e9ecef;
-    color: #333;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tags-section li a:hover {
-    background-color: #d1d1d1;
-    transform: scale(1.05);
-}
-.questions-section, .tags-section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 4px 8px;
+    margin-right: 5px;
+    border-radius: 12px;
+    font-size: 0.85em;
 }
