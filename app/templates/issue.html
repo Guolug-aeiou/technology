@@ -3,18 +3,23 @@
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/issue.css') }}">
 {% endblock %}
-
 {% block content %}
-<div class="issue-detail">
-    <h2 id="issue-title">{{ question.title }}</h2>
-    <div class="issue-meta">
-        <span>提问者：<span id="issue-author">{{ question.username }}</span></span> |
-        <span>浏览量：<span id="issue-views">{{ question.views }}</span></span> |
-        <span>发布时间：<span id="issue-time">{{ create_time }}</span></span>
+    <div class="issue-detail" id="issue-detail">
+        {% if user_data %}
+            <h2 id="issue-title">{{ user_data.title }}</h2>
+            <div class="issue-meta">
+                <span>提问者：<span id="issue-author">{{ coociks.username }}</span></span> |
+                <span>浏览量：<span id="issue-views">{{ user_data.views }}</span></span> |
+                <span>发布时间：<span id="issue-time">{{ user_data.created_at }}</span></span>
+            </div>
+            <div class="issue-content" id="issue-content">
+                {{ user_data.content }}
+            </div>
+        {% endif %}
+
     </div>
-    <div class="issue-content" id="issue-content">
-        {{ question.content }}
-    </div>
-    <a href="/" class="back-link">← 返回首页</a>
-</div>
+    <section class="tags-section">
+        <a href="/allIndex" class="back-link">← 返回最新热点</a><br>
+        <a href="/" class="back-link">← 返回我发布的问题</a>
+    </section>
 {% endblock %}

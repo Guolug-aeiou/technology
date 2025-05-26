@@ -1,10 +1,10 @@
 /* 定义全局CSS变量 */
 :root {
-  --primary-color: #007bff;
-  --success-color: #28a745;
-  --background-color: #f4f6f8;
-  --text-dark: #333;
-  --text-light: #777;
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --background-color: #f4f6f8;
+    --text-dark: #333;
+    --text-light: #777;
 }
 
 * {
@@ -109,7 +109,7 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.header .container{
+.header .container {
     padding: 5px 0;
 }
 
@@ -190,6 +190,21 @@ body {
 .stats {
     margin-bottom: 20px;
     overflow: auto; /* 清除浮动 */
+}
+
+.base_a_own {
+    display: inline-block;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    color: #333;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s;
+"
 }
 
 

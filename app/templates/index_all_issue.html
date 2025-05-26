@@ -3,18 +3,19 @@
 
 <!-- 设置页面标题 -->
 {% block title %}首页 - 技术分享社区{% endblock %}
+
 <!-- 页面主体内容 -->
 {% block content %}
     <section class="questions-section">
         <div style="padding: 5px; border-bottom: 1px solid #ccc;">
-            <h2>我发布的问题</h2>
+            <h2>最热问题</h2>
         </div>
-        {% for issue in user_issue %}
+        {% for data in all_data %}
             <ul id="questions-list">
                 <li>
-                    <a href="/user/issue/{{ issue.id }}">
-                        <strong>{{ issue.title }}</strong><br>
-                        提问者：{{ user_data.username }} · 浏览量：{{ issue.views }}· 时间：{{ issue.created_at }}
+                    <a href="/user/issue/{{ data.id }}">
+                        <strong>{{ data.title }}</strong><br>
+                        提问者：{{ data.username }} · 浏览量：{{ data.views }}· 时间：{{ data.created_at }}
                     </a>
                 </li>
             </ul>

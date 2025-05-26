@@ -22,17 +22,23 @@
 <body>
 <!-- 页面顶部导航栏 -->
 <header class="header">
+    <div class="left_div" style="float: left;padding-left: 20px;padding-top: 20px">
+        <a class="base_a_own" href="/allIndex" style="color: #007bff">最新文章</a>
+        <a class="base_a_own" href="/" style="color: #007bff">我发布的问题</a>
+    </div>
     <div class="container">
+
         <!-- 博客名称 -->
         <h1>技术分享社区</h1>
         <!-- 导航链接：登录、注册等 -->
         <nav>
-            {% if request.cookies.get('username') %}
+            {% if user_data %}
                 <!-- 已经登录 -->
-                <span>欢迎 [ {{ request.cookies.get('username') }} ] </span>
+                <span>欢迎 [ {{ user_data.username }} ] </span>
                 <div class="user-avatar">
                     <a href="/self">
-                        <img src="{{ url_for('static', filename='img/img.png') }}" alt="用户头像" class="avatar-img">
+                        <img src="{{ url_for('static', filename='img/img.png') }}" alt="用户头像"
+                             class="avatar-img">
                     </a>
                 </div>
                 <a href="/logout" onclick="return confirm('确定要退出登录吗？')"> 退出 </a>
