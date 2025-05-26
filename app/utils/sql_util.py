@@ -80,7 +80,7 @@ class MysqlUtils:
         """用于上下文管理器 with"""
         self.connect()
         return self
-
+ 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """退出上下文时自动关闭连接"""
         self.close()

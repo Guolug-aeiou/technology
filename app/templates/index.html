@@ -1,52 +1,29 @@
-<!-- 继承 base.html 模板 -->
 {% extends "base.html" %}
-
-<!-- 设置页面标题 -->
 {% block title %}首页 - 技术分享社区{% endblock %}
-<!-- 页面主体内容 -->
-{% block content %}
-    <section class="questions-section">
-        <div style="padding: 5px; border-bottom: 1px solid #ccc;">
-            <h2>最新问题</h2>
-        </div>
-        <ul id="questions-list">
-            <li>
-                <a href="/user/issue/{{ 100 }}">
-                    <strong>Node.js 如何部署到生产环境？</strong><br>
-                    提问者：李四 · 浏览量：98 · 时间：2025-05-17
-                </a>
-            </li>
-            <li>
-                <a href="/user/issue/{{ 100 }}">
-                    <strong>Python 的 GIL 是什么？</strong><br>
-                    提问者：王五 · 浏览量：150 · 时间：2025-05-16
-                </a>
-            </li>
-            <li>
-                <a href="/user/issue/{{ 100 }}">
-                    <strong>Python 的 GIL 是什么？</strong><br>
-                    提问者：王五 · 浏览量：150 · 时间：2025-05-16
-                </a>
-            </li>
-            <li>
-                <a href="/user/issue/{{ 100 }}">
-                    <strong>Python 的 GIL 是什么？</strong><br>
-                    提问者：王五 · 浏览量：150 · 时间：2025-05-16
-                </a>
-            </li>
-        </ul>
-    </section>
 
-    <section class="tags-section">
-        <h2>热门标签</h2>
-        <ul id="tags-list">
-            <li><a href="#">JavaScript</a></li>
-            <li><a href="#">Vue</a></li>
-            <li><a href="#">Node.js</a></li>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">React</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">Docker</a></li>
-        </ul>
-    </section>
+{% block content %}
+<section class="questions-section">
+    <h2>最新问题</h2>
+    <ul id="questions-list">
+        {% for question in questions %}
+        <li>
+            <a href="/user/issue/{{ question.id }}">
+                <strong>{{ question.title }}</strong><br>
+                提问者：{{ question.username }} ·
+                浏览量：{{ question.views }} ·
+                时间：{{ question.created_at.strftime('%Y-%m-%d') }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="tags-section">
+    <h2>热门标签</h2>
+    <ul id="tags-list">
+        {% for tag in tags %}
+        <li><a href="#">{{ tag.name }}</a></li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}

@@ -4,17 +4,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/issue.css') }}">
 {% endblock %}
 
-
 {% block content %}
-<div class="issue-detail" id="issue-detail">
-    <h2 id="issue-title">加载中...</h2>
+<div class="issue-detail">
+    <h2 id="issue-title">{{ question.title }}</h2>
     <div class="issue-meta">
-        <span>提问者：<span id="issue-author">匿名用户</span></span> |
-        <span>浏览量：<span id="issue-views">0</span></span> |
-        <span>发布时间：<span id="issue-time">--</span></span>
+        <span>提问者：<span id="issue-author">{{ question.username }}</span></span> |
+        <span>浏览量：<span id="issue-views">{{ question.views }}</span></span> |
+        <span>发布时间：<span id="issue-time">{{ create_time }}</span></span>
     </div>
     <div class="issue-content" id="issue-content">
-        正在加载问题内容...
+        {{ question.content }}
     </div>
     <a href="/" class="back-link">← 返回首页</a>
 </div>

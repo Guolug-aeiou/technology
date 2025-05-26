@@ -19,9 +19,31 @@ def index():
         if request.cookies.get('username') is None:
             # 重定向到登录视图（假设登录视图函数名为 'login'）
             return redirect(url_for('login'))
+    question_sql = """
+                   SELECT q.id, q.title, u.username, q.views, q.created_at
+                   FROM questions q
+                            JOIN users u ON q.user_id = u.id
+                   ORDER BY q.created_at DESC LIMIT 20 \
+                   """
 
+    # 获取热门标签
+    tag_sql = "SELECT * FROM tags ORDER BY RAND() LIMIT 10"
+
+    with MysqlUtils() as db:
+        questions = db.fetch_all(question_sql)
+        tags = db.fetch_all(tag_sql)
+
+    return render_template('index.html',
+                           questions=questions,
+                           tags=tags)
     # 处理 POST 请求或已登录用户
     return render_template('index.html')
+
+
+@app.route('/self', methods=['GET', 'POST'])
+def self():
+    if request.method == 'GET':
+        return render_template('self.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -44,7 +66,7 @@ def login():
             users = db.fetch_one(sql, (request.form.get('username'),))
             if users and users["password_hash"] == password_hash and users['username'] == username:
                 # 密码正确
-                # flash('密码正确', 'success')
+                flash('密码正确', 'success')
                 # 创建响应对象并设置Cookie
                 return configure_utils_cookie(response=make_response(redirect(url_for('index'))),
                                               username=users["username"],
@@ -57,10 +79,6 @@ def login():
     return redirect(url_for('login'))
 
 
-@app.route('/self',methods=['GET', 'POST'])
-def self():
-    if request.method == 'GET':
-        return render_template('self.html')
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     if request.method == 'GET':
@@ -96,11 +114,31 @@ def register():
     return redirect(url_for('register'))
 
 
-@app.route('/user/issue/<int:article_id>')
-def user_issue(article_id):
-    # 在数据库通过id取出issue - questions
-    print(article_id)
-    return render_template('issue.html')
+@app.route('/user/issue/<int:id>')
+def user_issue(id):
+    # 获取问题详情和用户信息
+    sql = """
+          SELECT q.*, u.username
+          FROM questions q
+                   JOIN users u ON q.user_id = u.id
+          WHERE q.id = %s \
+          """
+    with MysqlUtils() as db:
+        # 获取问题详情
+        question = db.fetch_one(sql, (id,))
+        # 更新浏览量
+        db.execute("UPDATE questions SET views = views + 1 WHERE id = %s", (id,))
+
+    if not question:
+        flash('请求的问题不存在', 'error')
+        return redirect(url_for('index'))
+
+    # 格式化时间
+    create_time = question['created_at'].strftime('%Y-%m-%d %H:%M')
+
+    return render_template('issue.html',
+                           question=question,
+                           create_time=create_time)
 
 
 if __name__ == '__main__':
