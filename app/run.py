@@ -73,6 +73,7 @@ def login():
                                                   'score': users['score'],
                                                   'email': users['email']
                                               },
+
                                               max_age=3600)
             else:
                 # 验证失败，显示错误信息
