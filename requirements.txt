@@ -1,7 +1,0 @@
-Flask
-Werkzeug
-Flask-Login
-Flask-SQLAlchemy
-PyMySQL
-python-dotenv
-cryptography
