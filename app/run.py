@@ -66,6 +66,7 @@ def login():
                                                   'score': users['score'],
                                                   'email': users['email']
                                               },
+
                                               max_age=3600)
             else:
                 flash('用户名或密码错误', 'error')
