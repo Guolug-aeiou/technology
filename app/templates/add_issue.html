@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+    发布新问题 - 技术分享社区
+{% endblock %}
+
+{% block head %}
+    <!-- 表单专用样式 -->
+    <style>
+        /* 容器内边距和背景 */
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        /* 表单项分组 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* 表单标签 */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        /* 输入框和文本域样式 */
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+        }
+
+        /* 文本区域高度控制 */
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* 提交按钮样式 */
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #0069d9;
+        }
+
+        /* 标题样式 */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>发布新问题</h2>
+
+        <!-- 表单提交到指定路径 -->
+        <form method="post" action="/add/issue/submit">
+            <div class="form-group">
+                <label for="title">标题</label>
+                <input type="text" id="title" name="title" placeholder="请输入问题标题" required />
+            </div>
+
+            <div class="form-group">
+                <label for="description">问题描述</label>
+                <textarea id="description" name="description" placeholder="详细描述你的问题..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">提交问题</button>
+        </form>
+    </div>
+{% endblock %}

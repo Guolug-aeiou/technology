@@ -50,6 +50,13 @@
             {% endif %}
         </nav>
     </div>
+    {# 有登录 #}
+    {% if user_data %}
+        <a href="/add/issue/frompage" class="floating-div">+</a>
+        {# 没登录 #}
+    {% else %}
+        <a href="/logout" class="floating-div">+</a>
+    {% endif %}
 </header>
 
 <!-- 页面主要内容区域 -->

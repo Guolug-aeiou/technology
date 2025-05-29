@@ -146,6 +146,23 @@ def user_issue(article_id):
     return render_template('issue.html', user_data=user_data, coociks=get_user_cookie(request))
 
 
+@app.route('/add/issue/frompage', methods=['GET'])
+def add_issue():
+    """<UNK>"""
+    return render_template('add_issue.html', user_data=get_user_cookie(request))
+
+
+@app.route("/add/issue/submit", methods=['POST'])
+def add_issue_submit():
+    if request.method == 'POST':
+        title = request.form.get('title')
+        content = request.form.get('description')
+        sql = "INSERT INTO questions(`title`, `content`,`user_id`, `views`) VALUES(%s,%s,%s,%s)"
+        with MysqlUtils() as db:
+            db.insert(sql, (title, content, get_user_cookie(request).get('id'), 0))
+            return redirect(url_for('index'))
+    return render_template('add_issue.html', user_data=get_user_cookie(request))
+
 
 if __name__ == '__main__':
     # 启动应用，开启调试模式
