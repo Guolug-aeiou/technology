@@ -11,11 +11,24 @@
         </div>
         {% for issue in user_issue %}
             <ul id="questions-list">
-                <li>
-                    <a href="/user/issue/{{ issue.id }}">
-                        <strong>{{ issue.title }}</strong><br>
-                        提问者：{{ user_data.username }} · 浏览量：{{ issue.views }}· 时间：{{ issue.created_at }}
-                    </a>
+                <li class="question-item">
+                    <div class="question-title">
+                        <a href="/user/issue/{{ issue.id }}">
+                            <strong>{{ issue.title }}</strong><br>
+                            {# 文章内容#}
+                            <div style="word-wrap: break-word; padding: 20px 40px 10px 0;color: #777777;font-size: 14px;">
+                                <p>{{ issue.content | truncate(200) }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="question-meta">
+                        <span>发布于 {{ issue.created_at }}</span>
+                        <span>提问者：{{ user_data.username }}</span>
+                        <span>浏览量：{{ issue.views }}</span>
+                        {% if issue.tag %}
+                            &ensp;|&ensp;<span class="tag">{{ issue.tag }}</span>
+                        {% endif %}
+                    </div>
                 </li>
             </ul>
         {% endfor %}

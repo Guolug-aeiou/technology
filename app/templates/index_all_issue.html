@@ -12,11 +12,24 @@
         </div>
         {% for data in all_data %}
             <ul id="questions-list">
-                <li>
-                    <a href="/user/issue/{{ data.id }}">
-                        <strong>{{ data.title }}</strong><br>
-                        提问者：{{ data.username }} · 浏览量：{{ data.views }}· 时间：{{ data.created_at }}
-                    </a>
+                <li class="question-item">
+                    <div class="question-title">
+                        <a href="/user/issue/{{ data.id }}">
+                            <strong>{{ data.title }}</strong><br>
+                                <div style="word-wrap: break-word; padding: 20px 40px 10px 0;color: #777777;font-size: 14px;">
+
+                            <p>{{ data.content  | truncate(200)}}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="question-meta">
+                        <span>发布于 {{ data.created_at }}</span>
+                        <span>提问者：{{ user_data.username }}</span>
+                        <span>浏览量：{{ data.views }}</span>
+                        {% if data.tag %}
+                            &ensp;|&ensp;<span class="tag">{{ data.tag }}</span>
+                        {% endif %}
+                    </div>
                 </li>
             </ul>
         {% endfor %}

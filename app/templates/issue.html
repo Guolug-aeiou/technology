@@ -5,15 +5,19 @@
 {% endblock %}
 {% block content %}
     <div class="issue-detail" id="issue-detail">
-        {% if user_data %}
-            <h2 id="issue-title">{{ user_data.title }}</h2>
+        {% if issue_data %}
+            <h2 id="issue-title">{{ issue_data.title }}</h2>
             <div class="issue-meta">
-                <span>提问者：<span id="issue-author">{{ coociks.username }}</span></span> |
-                <span>浏览量：<span id="issue-views">{{ user_data.views }}</span></span> |
-                <span>发布时间：<span id="issue-time">{{ user_data.created_at }}</span></span>
+                <span>提问者：<span id="issue-author">{{ user_data.username }}</span></span> |
+                <span>浏览量：<span id="issue-views">{{ issue_data.views }}</span></span> |
+                <span>发布时间：<span id="issue-time">{{ issue_data.created_at }}</span></span>
             </div>
             <div class="issue-content" id="issue-content">
-                {{ user_data.content }}
+                <p style="white-space: normal;word-wrap: break-word;">{{ issue_data.content }}</p>
+                {% if issue_data.id == isMyIssue.id %}
+                    <a href="/edit/{{ issue_data.id }}"
+                       style="float: right;display: inline-block;text-decoration: none;padding: 6px 12px;background: #e9ecef;border-radius: 8px;text-align: center;">修改 </a>
+                {% endif %}
             </div>
         {% endif %}
 

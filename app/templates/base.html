@@ -37,7 +37,7 @@
                 <span>欢迎 [ {{ user_data.username }} ] </span>
                 <div class="user-avatar">
                     <a href="/self">
-                        <img src="{{ url_for('static', filename='img/img.png') }}" alt="用户头像"
+                        <img src="{{ url_for('static', filename='img/'+ (user_data.avatar or 'default_avatar.png') ) }}" alt="用户头像"
                              class="avatar-img">
                     </a>
                 </div>

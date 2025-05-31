@@ -6,22 +6,15 @@
     <main class="container">
         <!-- 用户信息卡片 -->
         <div class="user-info-card">
-            {#            <div class="user-avatar">#}
-            {#                <!-- 使用默认头像 -->#}
-            {#                <img src="{{ url_for('static', filename='img/img.png') }}"#}
-            {#                     alt="用户头像"#}
-            {#                     class="avatar-img"#}
-            {#                     style="width: 100px; height: 100px; border-width: 3px;">#}
-            {#            </div>#}
             <div class="user-details">
-                <h2>tech_guru</h2>  <!-- 模拟用户名 -->
-                <p>邮箱: guru@example.com</p>  <!-- 模拟邮箱 -->
-                <p>注册时间: 2025-01-15</p>  <!-- 模拟注册时间 -->
-                <p>积分: 150</p>  <!-- 模拟积分 -->
+                <h2>{{ user_data.username }}</h2>  <!-- 模拟用户名 -->
+                <p>邮箱: {{ user_data.email }}</p>  <!-- 模拟邮箱 -->
+                <p>注册时间: {{ user_data.created_at }}</p>  <!-- 模拟注册时间 -->
+                <p>积分: {{ user_data.score }}</p>  <!-- 模拟积分 -->
             </div>
             <div class="stats">
                 <div class="stat-box">
-                    <div class="value">5</div>  <!-- 模拟发布问题数 -->
+                    <div class="value">{{ counts.counts }}</div>  <!-- 模拟发布问题数 -->
                     <div class="label">发布问题</div>
                 </div>
                 <div class="stat-box">
@@ -42,23 +35,32 @@
         <!-- 我的问题列表 -->
         <div class="questions-section">
             <h2 class="section-title">我的提问</h2>
-            <ul>
-                <!-- 模拟问题数据（直接复制HTML结构，修改标题和时间） -->
-                <li class="question-item">
-                    <div class="question-title">
-                        <a href="/user/issue/{{ 100 }}">如何优化Python代码性能？</a>
-                    </div>
-                    <div class="question-meta">
-                        <span>发布于 05-20</span>
-                        <span class="tag">Python</span>
-                        <span>浏览量: 150</span>
-                    </div>
-                </li>
-            </ul>
+            {% for issue in user_issue %}
+                <ul>
+                    <!-- 模拟问题数据（直接复制HTML结构，修改标题和时间） -->
+                    <li class="question-item">
+                        <div class="question-title">
+                            <a href="/user/issue/{{ issue.id }}">
+                                <strong>{{ issue.title }}</strong><br>
+                                <div style="word-wrap: break-word; padding: 20px 40px 10px 0;color: #777777;font-size: 14px;">
+                                    <p>{{ issue.content  | truncate(200) }}</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="question-meta">
+                            <span>发布于 {{ issue.created_at }}</span>
+                            <span>浏览量: {{ issue.views }}</span>
+                            {% if issue.tag %}
+                                &ensp;|&ensp;<span class="tag">{{ issue.tag }}</span>
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
         </div>
         <!-- 感兴趣的标签 -->
         <div class="tags-section">
-            <h2 class="section-title">关注的技术标签</h2>
+            <h2 class="section-title">相关的技术标签</h2>
             <ul>
                 <!-- 模拟标签数据（直接列出标签名称） -->
                 <li><a href="#">Python</a></li>
