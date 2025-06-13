@@ -81,7 +81,6 @@ INSERT INTO questions (title, content, user_id, views) VALUES
 ('CI/CD流水线设计', '如何设计高效的持续集成部署流程？', 3, 210),
 ('NoSQL数据库适用场景', '什么情况下应该选择NoSQL？', 4, 160),
 ('物联网安全防护', 'IoT设备安全防护的最佳实践', 5, 180);
-DELETE FROM questions;
 INSERT INTO questions (title, content, user_id, views, created_at) VALUES
 ('如何优化Python代码性能？', '我在处理大数据集时遇到性能问题，有什么优化技巧吗？', 1, 150, '2024-10-15 09:30:22'),
 ('React和Vue哪个更适合大型项目？', '我们公司要启动一个新项目，在技术选型上犹豫不决', 2, 200, '2024-11-20 14:45:11'),
